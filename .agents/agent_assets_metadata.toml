@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "9cuOmXsRxu6x-RJPEe5bO"
+uri = "file://attached_assets/juice-box-logo.png"
+type = "image"
+title = "juice box studios gaming logo"
+
+[[generated]]
+id = "Jj6QKokKdAXSaDEQGmUTt"
+uri = "file://artifacts/juice-box-studios/src/assets/images/hero-bg.png"
+type = "image"
+title = "Abstract electric neon kinetic energy"
+
+[[generated]]
+id = "3pxEF-7KTnwUxwdqiQKg0"
+uri = "file://artifacts/juice-box-studios/src/assets/images/game-1.png"
+type = "image"
+title = "Cyberpunk street racing car"
+
+[[generated]]
+id = "q6-osEl9lNne70N1Vg-Nr"
+uri = "file://artifacts/juice-box-studios/src/assets/images/game-2.png"
+type = "image"
+title = "Glowing 2D platformer scene"
+
+[[generated]]
+id = "fcdpRhOuGshq-nyhc_quj"
+uri = "file://artifacts/juice-box-studios/src/assets/images/game-3.png"
+type = "image"
+title = "Isometric stealth game facility"
+
+[[generated]]
+id = "j1EUgK7VaMMo4qtopj2b-"
+uri = "file://artifacts/juice-box-studios/src/assets/images/studio.png"
+type = "image"
+title = "Dark moody neon arcade room"
