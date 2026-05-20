@@ -1,5 +1,12 @@
 {
   "installCommand": "corepack pnpm install --frozen-lockfile",
   "buildCommand": "corepack pnpm --filter @workspace/juice-box-studios run build",
-  "outputDirectory": "artifacts/juice-box-studios/dist/public"
+  "outputDirectory": "artifacts/juice-box-studios/dist/public",
+  "public": true,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
