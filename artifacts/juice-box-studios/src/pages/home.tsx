@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { ArrowRight, Sword, Scroll, Flame, Star, Sparkles, Crown } from "lucide-react";
 import logoPath from "@assets/juice-box-logo.png";
 import heroBg from "@/assets/images/hero-bg.png";
@@ -10,18 +10,21 @@ import studioBg from "@/assets/images/studio.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: { staggerChildren: 0.2 }
   }
 };
+
+const discordInviteUrl = "https://discord.gg/hHdfWYGKW";
+const contactEmail = "juiceboxstudios999@gmail.com";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,26 +36,29 @@ export default function Home() {
       <div className="scanline" />
       
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center backdrop-blur-md border-b border-white/5 bg-background/50">
+      <nav aria-label="Primary navigation" className="fixed top-0 left-0 right-0 z-50 p-4 sm:p-6 flex justify-between items-center gap-4 backdrop-blur-md border-b border-white/5 bg-background/50">
         <div className="flex items-center gap-3">
           <img src={logoPath} alt="Juice Box Studios" className="h-10 w-auto" />
-          <span className="font-bold text-xl tracking-tighter hidden sm:inline-block cinzel text-glow">JUICE BOX STUDIOS</span>
+          <span className="font-bold text-lg lg:text-xl tracking-tighter hidden sm:inline-block cinzel text-glow">JUICE BOX STUDIOS</span>
         </div>
-        <div className="flex items-center gap-6 font-sans font-bold text-sm uppercase tracking-wider">
+        <div className="hidden md:flex items-center gap-6 font-sans font-bold text-sm uppercase tracking-wider">
           <a href="#lore" className="hover:text-primary transition-colors">Lore</a>
           <a href="#realms" className="hover:text-secondary transition-colors">Realms</a>
           <a href="#guild" className="hover:text-accent transition-colors">Guild</a>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold border-none rounded-sm uppercase box-glow-accent cinzel tracking-widest">
-            Join the Order
+          <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold border-none rounded-sm uppercase box-glow-accent cinzel tracking-widest">
+            <a href="#join">Join the Order</a>
           </Button>
         </div>
+        <Button asChild size="sm" className="md:hidden bg-accent text-accent-foreground hover:bg-accent/90 font-bold border-none rounded-sm uppercase box-glow-accent cinzel tracking-widest">
+          <a href="#join">Join</a>
+        </Button>
       </nav>
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center pt-20">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-background/70 z-10" />
-          <img src={heroBg} alt="Hero Background" className="w-full h-full object-cover opacity-60" />
+          <img src={heroBg} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-60" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-20" />
         </motion.div>
         
@@ -73,12 +79,12 @@ export default function Home() {
             <motion.p variants={fadeUp} className="text-xl md:text-2xl text-muted-foreground font-sans max-w-2xl leading-relaxed">
               Born of ancient magic, fueled by arcane power. We weave deep lore and breathtaking worlds for those who seek the extraordinary.
             </motion.p>
-            <motion.div variants={fadeUp} className="flex gap-4 mt-8">
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/80 h-14 px-8 text-lg font-bold rounded-sm uppercase tracking-wider box-glow cinzel">
-                Explore the Realms
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mt-8 w-full sm:w-auto">
+              <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/80 h-14 px-6 sm:px-8 text-base sm:text-lg font-bold rounded-sm uppercase tracking-wider box-glow cinzel w-full sm:w-auto">
+                <a href="#realms">Explore the Realms</a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/5 h-14 px-8 text-lg font-bold rounded-sm uppercase tracking-wider cinzel">
-                Read the Tomes
+              <Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/5 h-14 px-6 sm:px-8 text-base sm:text-lg font-bold rounded-sm uppercase tracking-wider cinzel w-full sm:w-auto">
+                <a href="#lore">Read the Tomes</a>
               </Button>
             </motion.div>
           </motion.div>
@@ -251,7 +257,7 @@ export default function Home() {
       </section>
 
       {/* CTA / Newsletter */}
-      <section className="py-32 bg-primary/5 relative overflow-hidden">
+      <section id="join" className="py-32 bg-primary/5 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
         
         <div className="container mx-auto px-6 relative z-10">
@@ -270,6 +276,8 @@ export default function Home() {
             <form className="flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
               <Input 
                 type="email" 
+                name="email"
+                aria-label="Email address"
                 placeholder="ENTER YOUR SIGIL (EMAIL)" 
                 className="h-14 bg-black/60 border-white/20 font-sans text-lg rounded-sm focus-visible:ring-primary"
               />
@@ -277,6 +285,17 @@ export default function Home() {
                 Swear Oath <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </form>
+            <p className="mt-6 text-sm text-muted-foreground font-sans">
+              Prefer the tavern fire?{" "}
+              <a href={discordInviteUrl} target="_blank" rel="noreferrer" className="font-bold text-primary hover:text-primary/80 transition-colors">
+                Join the Discord
+              </a>{" "}
+              or send a scroll to{" "}
+              <a href={`mailto:${contactEmail}`} className="font-bold text-primary hover:text-primary/80 transition-colors">
+                {contactEmail}
+              </a>
+              .
+            </p>
           </motion.div>
         </div>
       </section>
@@ -289,11 +308,16 @@ export default function Home() {
               <img src={logoPath} alt="Juice Box Studios" className="h-8 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
               <span className="font-bold tracking-tighter text-muted-foreground cinzel">JUICE BOX STUDIOS</span>
             </div>
-            <div className="flex gap-6 font-sans font-bold text-sm text-muted-foreground uppercase tracking-widest">
-              <a href="#" className="hover:text-primary transition-colors">Ravens (Twitter)</a>
-              <a href="#" className="hover:text-primary transition-colors">Tavern (Discord)</a>
-              <a href="#" className="hover:text-primary transition-colors">Visions (YouTube)</a>
-              <a href="#" className="hover:text-primary transition-colors">Steam</a>
+            <div className="flex flex-col items-center md:items-end gap-3">
+              <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 font-sans font-bold text-sm text-muted-foreground uppercase tracking-widest">
+                <a href="#" className="hover:text-primary transition-colors">Ravens (Twitter)</a>
+                <a href={discordInviteUrl} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">Tavern (Discord)</a>
+                <a href="#" className="hover:text-primary transition-colors">Visions (YouTube)</a>
+                <a href="#" className="hover:text-primary transition-colors">Steam</a>
+              </div>
+              <a href={`mailto:${contactEmail}`} className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors">
+                {contactEmail}
+              </a>
             </div>
           </div>
           <div className="mt-8 text-center md:text-left text-xs text-muted-foreground/50 font-sans">
