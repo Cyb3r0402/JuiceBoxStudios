@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { ArrowRight, Sword, Scroll, Flame, Star, Sparkles, Crown } from "lucide-react";
-import logoPath from "@/assets/juice-box-logo.png";
+import logoPath from "@/assets/images/juice-box-logo.png";
 import heroBg from "@/assets/images/hero-bg.png";
 import game1 from "@/assets/images/game-1.png";
 import game2 from "@/assets/images/game-2.png";
