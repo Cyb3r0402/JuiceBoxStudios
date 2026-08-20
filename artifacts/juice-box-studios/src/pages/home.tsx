@@ -1,4 +1,4 @@
-import { ArrowUpRight, ChevronDown, Compass, Menu, Play, Plus, Shield, Sparkles } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Menu } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { accentClasses, getGames, type Game } from "@/lib/games";
