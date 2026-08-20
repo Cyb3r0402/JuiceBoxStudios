@@ -76,7 +76,9 @@ export function getGames(): Game[] {
   if (typeof window === "undefined") return seedGames;
   try {
     const stored = window.localStorage.getItem(storageKey);
-    return stored ? JSON.parse(stored) : seedGames;
+    if (!stored) return seedGames;
+    const parsed: unknown = JSON.parse(stored);
+    return Array.isArray(parsed) ? parsed as Game[] : seedGames;
   } catch {
     return seedGames;
   }
