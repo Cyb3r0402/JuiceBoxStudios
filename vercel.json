@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "rootDirectory": "artifacts/juice-box-studios",
-  "buildCommand": "pnpm run build"
+  "buildCommand": "pnpm --filter @workspace/juice-box-studios run build"
 }
