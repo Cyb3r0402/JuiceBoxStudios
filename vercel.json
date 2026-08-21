@@ -1,4 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "corepack pnpm --filter @workspace/juice-box-studios run build"
+  "buildCommand": "pnpm exec tsc --build && corepack pnpm --filter @workspace/juice-box-studios run build"
 }
