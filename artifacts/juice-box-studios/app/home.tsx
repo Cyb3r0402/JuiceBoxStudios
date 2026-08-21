@@ -147,6 +147,13 @@ export default function Home() {
             <p className="text-xl text-muted-foreground font-sans max-w-2xl mx-auto">Three forgotten kingdoms. Three epic sagas to unfold.</p>
           </motion.div>
 
+          <div role="status" className="mb-12 flex items-center gap-3 border border-accent/30 bg-accent/10 px-4 py-3 text-center sm:text-left rounded-sm">
+            <Flame className="h-5 w-5 flex-shrink-0 text-accent" aria-hidden="true" />
+            <p className="font-sans text-sm text-muted-foreground sm:text-base">
+              <span className="font-bold uppercase tracking-wide text-accent">Game Development in Progress</span>{" "}— placeholders will be replaced soon.
+            </p>
+          </div>
+
           <GameManager defaults={defaultGames} />
         </div>
       </section>
