@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { ArrowRight, Sword, Scroll, Flame, Star, Sparkles, Crown } from "lucide-react";
