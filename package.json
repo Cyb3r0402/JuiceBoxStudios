@@ -4,7 +4,6 @@
   "license": "MIT",
   "packageManager": "pnpm@11.1.2",
   "scripts": {
-    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; agent=\"$npm_config_user_agent $npm_execpath\"; case \"$agent\" in pnpm/*|*pnpm*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
     "build": "corepack pnpm run typecheck && corepack pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
     "typecheck": "corepack pnpm run typecheck:libs && corepack pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
