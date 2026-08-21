@@ -5,6 +5,7 @@ dist
 public
 tmp
 .vercel
+.next
 out-tsc
 *.tsbuildinfo
 .expo
