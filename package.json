@@ -4,9 +4,9 @@
   "license": "MIT",
   "packageManager": "pnpm@11.1.2",
   "scripts": {
-    "build": "corepack pnpm run typecheck && corepack pnpm -r --if-present run build",
+    "build": "pnpm run typecheck && pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
-    "typecheck": "corepack pnpm run typecheck:libs && corepack pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
   "private": true,
   "devDependencies": {
