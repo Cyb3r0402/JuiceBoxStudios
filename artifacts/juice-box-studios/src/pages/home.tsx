@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { ArrowRight, Sword, Scroll, Flame, Star, Sparkles, Crown } from "lucide-react";
+import GameManager, { type Game } from "@/components/game-manager";
 import logoPath from "@/assets/images/juice-box-logo.png";
 import heroBg from "@/assets/images/hero-bg.png";
 import game1 from "@/assets/images/game-1.png";
@@ -9,6 +10,12 @@ import game3 from "@/assets/images/game-3.png";
 import studioBg from "@/assets/images/studio.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+
+const defaultGames: Game[] = [
+  { id: "crown-of-ash", title: "Crown of Ash", status: "Now Forging", description: "A brutal action RPG where a fallen knight battles through a crumbling empire. Master heavy combat, gather the ashes of fallen lords, and reclaim your lost humanity in a dying world.", image: game1, videoUrl: "", accent: "primary", cta: "Enter the Citadel" },
+  { id: "verdant-covenant", title: "Verdant Covenant", status: "The Seed is Planted", description: "A lush open-world adventure set in an ancient, living forest. Walk the path of the Druid, commune with nature spirits, solve environmental mysteries, and heal the blight that corrupts the deep woods.", image: game2, videoUrl: "", accent: "secondary", cta: "Pledge to the Grove" },
+  { id: "hollow-throne", title: "The Hollow Throne", status: "Prophecies Spoken", description: "A gothic strategy game where you must rebuild a shattered kingdom from absolute ruin. Command skeleton legions, manage dark resources, and defend your obsidian throne against encroaching holy orders.", image: game3, videoUrl: "", accent: "accent", cta: "Summon the Council" },
+];
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -138,79 +145,7 @@ export default function Home() {
             <p className="text-xl text-muted-foreground font-sans max-w-2xl mx-auto">Three forgotten kingdoms. Three epic sagas to unfold.</p>
           </motion.div>
 
-          <div className="space-y-32">
-            {/* Game 1 */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerContainer}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            >
-              <motion.div variants={fadeUp} className="relative group">
-                <div className="absolute -inset-4 bg-primary/20 blur-2xl group-hover:bg-primary/30 transition-colors rounded-[2rem]" />
-                <img src={game1} alt="Crown of Ash" className="relative rounded-sm border border-white/10 shadow-2xl z-10 w-full object-cover aspect-video" />
-              </motion.div>
-              <motion.div variants={fadeUp} className="flex flex-col gap-6 lg:pl-12">
-                <div className="font-sans text-primary font-bold tracking-widest uppercase flex items-center gap-2"><Flame className="w-4 h-4"/> Now Forging</div>
-                <h3 className="text-5xl font-black text-glow cinzel tracking-tighter">CROWN OF ASH</h3>
-                <p className="text-lg text-muted-foreground font-sans leading-relaxed">
-                  A brutal action RPG where a fallen knight battles through a crumbling empire. Master heavy combat, gather the ashes of fallen lords, and reclaim your lost humanity in a dying world.
-                </p>
-                <div className="flex gap-4">
-                  <Button className="bg-primary text-white hover:bg-primary/80 rounded-sm font-bold px-8 h-12 uppercase cinzel tracking-widest">Enter the Citadel</Button>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Game 2 */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerContainer}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            >
-              <motion.div variants={fadeUp} className="flex flex-col gap-6 lg:pr-12 order-2 lg:order-1">
-                <div className="font-sans text-secondary font-bold tracking-widest uppercase">The Seed is Planted</div>
-                <h3 className="text-5xl font-black text-glow-secondary cinzel tracking-tighter">VERDANT COVENANT</h3>
-                <p className="text-lg text-muted-foreground font-sans leading-relaxed">
-                  A lush open-world adventure set in an ancient, living forest. Walk the path of the Druid, commune with nature spirits, solve environmental mysteries, and heal the blight that corrupts the deep woods.
-                </p>
-                <div className="flex gap-4">
-                  <Button className="bg-secondary text-black hover:bg-secondary/80 rounded-sm font-bold px-8 h-12 uppercase box-glow-secondary cinzel tracking-widest">Pledge to the Grove</Button>
-                </div>
-              </motion.div>
-              <motion.div variants={fadeUp} className="relative group order-1 lg:order-2">
-                <div className="absolute -inset-4 bg-secondary/20 blur-2xl group-hover:bg-secondary/30 transition-colors rounded-[2rem]" />
-                <img src={game2} alt="Verdant Covenant" className="relative rounded-sm border border-white/10 shadow-2xl z-10 w-full object-cover aspect-video" />
-              </motion.div>
-            </motion.div>
-
-            {/* Game 3 */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerContainer}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-            >
-              <motion.div variants={fadeUp} className="relative group">
-                <div className="absolute -inset-4 bg-accent/20 blur-2xl group-hover:bg-accent/30 transition-colors rounded-[2rem]" />
-                <img src={game3} alt="The Hollow Throne" className="relative rounded-sm border border-white/10 shadow-2xl z-10 w-full object-cover aspect-video" />
-              </motion.div>
-              <motion.div variants={fadeUp} className="flex flex-col gap-6 lg:pl-12">
-                <div className="font-sans text-accent font-bold tracking-widest uppercase">Prophecies Spoken</div>
-                <h3 className="text-5xl font-black text-glow-accent cinzel tracking-tighter">THE HOLLOW THRONE</h3>
-                <p className="text-lg text-muted-foreground font-sans leading-relaxed">
-                  A gothic strategy game where you must rebuild a shattered kingdom from absolute ruin. Command skeleton legions, manage dark resources, and defend your obsidian throne against encroaching holy orders.
-                </p>
-                <div className="flex gap-4">
-                  <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-black rounded-sm font-bold px-8 h-12 uppercase transition-all cinzel tracking-widest">Summon the Council</Button>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
+          <GameManager defaults={defaultGames} />
         </div>
       </section>
 
