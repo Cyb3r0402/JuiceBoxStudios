@@ -1,4 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm exec tsc --build && corepack pnpm --filter @workspace/juice-box-studios run build"
+  "framework": "vite",
+  "buildCommand": "pnpm --filter @workspace/juice-box-studios run build",
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
