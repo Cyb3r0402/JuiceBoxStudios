@@ -6,18 +6,11 @@ import { ArrowRight, Sword, Scroll, Flame, Star, Sparkles, Crown } from "lucide-
 import GameManager, { type Game } from "@/components/game-manager";
 const logoPath = "/images/juice-box-logo.png";
 const heroBg = "/images/hero-bg.png";
-const game1 = "/images/game-1.png";
-const game2 = "/images/game-2.png";
-const game3 = "/images/game-3.png";
 const studioBg = "/images/studio.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-const defaultGames: Game[] = [
-  { id: "crown-of-ash", title: "Crown of Ash", status: "Now Forging", description: "A brutal action RPG where a fallen knight battles through a crumbling empire. Master heavy combat, gather the ashes of fallen lords, and reclaim your lost humanity in a dying world.", image: game1, videoUrl: "", gameUrl: "", accent: "primary", cta: "Enter the Citadel" },
-  { id: "verdant-covenant", title: "Verdant Covenant", status: "The Seed is Planted", description: "A lush open-world adventure set in an ancient, living forest. Walk the path of the Druid, commune with nature spirits, solve environmental mysteries, and heal the blight that corrupts the deep woods.", image: game2, videoUrl: "", gameUrl: "", accent: "secondary", cta: "Pledge to the Grove" },
-  { id: "hollow-throne", title: "The Hollow Throne", status: "Prophecies Spoken", description: "A gothic strategy game where you must rebuild a shattered kingdom from absolute ruin. Command skeleton legions, manage dark resources, and defend your obsidian throne against encroaching holy orders.", image: game3, videoUrl: "", gameUrl: "", accent: "accent", cta: "Summon the Council" },
-];
+const defaultGames: Game[] = [];
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -144,7 +137,7 @@ export default function Home() {
             className="mb-20 text-center"
           >
             <h2 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter cinzel rune-glow">Our Realms</h2>
-            <p className="text-xl text-muted-foreground font-sans max-w-2xl mx-auto">Three forgotten kingdoms. Three epic sagas to unfold.</p>
+            <p className="text-xl text-muted-foreground font-sans max-w-2xl mx-auto">Games will be added when they are available.</p>
           </motion.div>
 
           <GameManager defaults={defaultGames} />
