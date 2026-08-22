@@ -245,6 +245,9 @@ export default function Home() {
               <a href={`mailto:${contactEmail}`} className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors">
                 {contactEmail}
               </a>
+              <a href="/sign-in" className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/30 transition-colors hover:text-muted-foreground/70">
+                Studio access
+              </a>
             </div>
           </div>
           <div className="mt-8 text-center md:text-left text-xs text-muted-foreground/50 font-sans">
