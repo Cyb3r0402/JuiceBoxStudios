@@ -4,19 +4,19 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { ArrowRight, Sword, Scroll, Flame, Star, Sparkles, Crown } from "lucide-react";
 import GameManager, { type Game } from "@/components/game-manager";
-import logoPath from "@/assets/images/juice-box-logo.png";
-import heroBg from "@/assets/images/hero-bg.png";
-import game1 from "@/assets/images/game-1.png";
-import game2 from "@/assets/images/game-2.png";
-import game3 from "@/assets/images/game-3.png";
-import studioBg from "@/assets/images/studio.png";
+const logoPath = "/images/juice-box-logo.png";
+const heroBg = "/images/hero-bg.png";
+const game1 = "/images/game-1.png";
+const game2 = "/images/game-2.png";
+const game3 = "/images/game-3.png";
+const studioBg = "/images/studio.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 const defaultGames: Game[] = [
-  { id: "crown-of-ash", title: "Crown of Ash", status: "Now Forging", description: "A brutal action RPG where a fallen knight battles through a crumbling empire. Master heavy combat, gather the ashes of fallen lords, and reclaim your lost humanity in a dying world.", image: game1, videoUrl: "", accent: "primary", cta: "Enter the Citadel" },
-  { id: "verdant-covenant", title: "Verdant Covenant", status: "The Seed is Planted", description: "A lush open-world adventure set in an ancient, living forest. Walk the path of the Druid, commune with nature spirits, solve environmental mysteries, and heal the blight that corrupts the deep woods.", image: game2, videoUrl: "", accent: "secondary", cta: "Pledge to the Grove" },
-  { id: "hollow-throne", title: "The Hollow Throne", status: "Prophecies Spoken", description: "A gothic strategy game where you must rebuild a shattered kingdom from absolute ruin. Command skeleton legions, manage dark resources, and defend your obsidian throne against encroaching holy orders.", image: game3, videoUrl: "", accent: "accent", cta: "Summon the Council" },
+  { id: "crown-of-ash", title: "Crown of Ash", status: "Now Forging", description: "A brutal action RPG where a fallen knight battles through a crumbling empire. Master heavy combat, gather the ashes of fallen lords, and reclaim your lost humanity in a dying world.", image: game1, videoUrl: "", gameUrl: "", accent: "primary", cta: "Enter the Citadel" },
+  { id: "verdant-covenant", title: "Verdant Covenant", status: "The Seed is Planted", description: "A lush open-world adventure set in an ancient, living forest. Walk the path of the Druid, commune with nature spirits, solve environmental mysteries, and heal the blight that corrupts the deep woods.", image: game2, videoUrl: "", gameUrl: "", accent: "secondary", cta: "Pledge to the Grove" },
+  { id: "hollow-throne", title: "The Hollow Throne", status: "Prophecies Spoken", description: "A gothic strategy game where you must rebuild a shattered kingdom from absolute ruin. Command skeleton legions, manage dark resources, and defend your obsidian throne against encroaching holy orders.", image: game3, videoUrl: "", gameUrl: "", accent: "accent", cta: "Summon the Council" },
 ];
 
 const fadeUp: Variants = {
@@ -210,7 +210,7 @@ export default function Home() {
             <p className="text-lg text-muted-foreground font-sans mb-8">
               Join the order's messaging scroll. Receive whispered prophecies, closed beta access rituals, and forbidden development knowledge.
             </p>
-            <form className="flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col sm:flex-row gap-4" action={`mailto:${contactEmail}`} method="post" encType="text/plain">
               <Input 
                 type="email" 
                 name="email"
@@ -247,10 +247,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center md:items-end gap-3">
               <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3 font-sans font-bold text-sm text-muted-foreground uppercase tracking-widest">
-                <a href="#" className="hover:text-primary transition-colors">Ravens (Twitter)</a>
                 <a href={discordInviteUrl} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">Tavern (Discord)</a>
-                <a href="#" className="hover:text-primary transition-colors">Visions (YouTube)</a>
-                <a href="#" className="hover:text-primary transition-colors">Steam</a>
               </div>
               <a href={`mailto:${contactEmail}`} className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors">
                 {contactEmail}
